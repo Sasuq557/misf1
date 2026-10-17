@@ -1,14 +1,12 @@
 
-```html
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CryptoLearn | 暗号資産を学ぼう</title>
+    <title>CRYPTOVA | 暗号資産</title>
 
     <style>
-        /* General Settings */
         * {
             margin: 0;
             padding: 0;
@@ -17,13 +15,14 @@
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 90px;
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background: #0B1020;
-            color: #E5E7EB;
-            line-height: 1.6;
+            font-family: Arial, "Noto Sans JP", sans-serif;
+            background: #070B14;
+            color: #F1F5F9;
+            line-height: 1.7;
         }
 
         a {
@@ -31,103 +30,170 @@
             color: inherit;
         }
 
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
         /* Header */
         header {
-            background: #11182B;
-            padding: 20px 8%;
+            position: sticky;
+            top: 0;
+            z-index: 10;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #25304A;
+            padding: 20px 8%;
+            background: rgba(7, 11, 20, 0.92);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid #202B3E;
         }
 
         .logo {
             font-size: 25px;
-            font-weight: bold;
-            color: #34D399;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: #52FFB8;
         }
 
         nav {
             display: flex;
-            gap: 24px;
+            gap: 28px;
         }
 
         nav a {
-            color: #CBD5E1;
+            color: #A8B4C8;
+            font-size: 14px;
             transition: color 0.3s;
         }
 
         nav a:hover {
-            color: #34D399;
+            color: #52FFB8;
         }
 
-        /* Hero Section */
+        /* Hero */
         .hero {
-            padding: 90px 8%;
+            position: relative;
+            isolation: isolate;
+            min-height: 570px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            background: linear-gradient(
-                135deg,
-                #11182B,
-                #1A1640,
-                #0B1020
-            );
+            padding: 90px 20px;
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    ellipse at 20% 20%,
+                    rgba(0, 255, 170, 0.16),
+                    transparent 40%
+                ),
+                radial-gradient(
+                    ellipse at 80% 30%,
+                    rgba(139, 92, 246, 0.22),
+                    transparent 40%
+                ),
+                linear-gradient(
+                    rgba(7, 11, 20, 0.65),
+                    rgba(7, 11, 20, 0.88)
+                ),
+                url("https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=2000&q=85");
+
+            background-size: cover;
+            background-position: center;
         }
 
-        .hero .tag {
-            color: #34D399;
-            font-size: 14px;
+        .hero-tag {
+            display: inline-block;
+            color: #52FFB8;
+            border: 1px solid #285B4B;
+            background: rgba(16, 37, 31, 0.85);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 12px;
             letter-spacing: 2px;
-            margin-bottom: 16px;
+            margin-bottom: 24px;
         }
 
         .hero h1 {
-            font-size: clamp(34px, 5vw, 56px);
-            line-height: 1.25;
-            margin-bottom: 20px;
+            font-size: clamp(40px, 7vw, 76px);
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            text-shadow: 0 3px 25px rgba(0, 0, 0, 0.5);
         }
 
         .hero h1 span {
-            color: #34D399;
+            color: #52FFB8;
+            text-shadow: 0 0 35px rgba(82, 255, 184, 0.3);
         }
 
         .hero p {
-            max-width: 650px;
-            margin: 0 auto 30px;
-            color: #AAB6CC;
-            font-size: 17px;
+            color: #D0D9E8;
+            max-width: 580px;
+            margin-bottom: 32px;
         }
 
         .button {
             display: inline-block;
-            background: #10B981;
-            color: #07151A;
-            padding: 13px 26px;
+            padding: 13px 28px;
             border-radius: 8px;
+            background: #52FFB8;
+            color: #07130F;
             font-weight: bold;
-            transition: background 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .button:hover {
-            background: #6EE7B7;
+            transform: translateY(-3px);
+            box-shadow: 0 0 28px rgba(82, 255, 184, 0.3);
         }
 
-        /* Common Sections */
+        /* Sections */
         .container {
             max-width: 1150px;
             margin: auto;
-            padding: 70px 24px;
+            padding: 80px 24px;
         }
 
-        .section-title {
+        .section-heading {
             text-align: center;
-            margin-bottom: 12px;
-            font-size: 32px;
+            margin-bottom: 42px;
         }
 
-        .section-subtitle {
-            text-align: center;
-            color: #94A3B8;
-            margin-bottom: 40px;
+        .section-heading h2 {
+            font-size: clamp(26px, 4vw, 36px);
+            margin-bottom: 8px;
+        }
+
+        .section-heading p {
+            color: #8997AD;
+            font-size: 14px;
+        }
+
+        .accent {
+            color: #52FFB8;
+        }
+
+        /* Shared card images */
+        .card-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .image-wrap {
+            overflow: hidden;
+            background: #141E30;
+        }
+
+        .price-card:hover .card-image,
+        .learn-card:hover .card-image,
+        .news-card:hover .card-image {
+            transform: scale(1.04);
         }
 
         /* Price Cards */
@@ -138,66 +204,84 @@
         }
 
         .price-card {
-            background: #151E33;
-            border: 1px solid #293650;
-            border-radius: 14px;
-            padding: 25px;
-            transition: transform 0.3s, border-color 0.3s;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(145deg, #141E30, #0C1220);
+            border: 1px solid #26354A;
+            border-radius: 16px;
+            transition: transform 0.3s, border-color 0.3s,
+                        box-shadow 0.3s;
         }
 
         .price-card:hover {
-            transform: translateY(-5px);
-            border-color: #34D399;
+            transform: translateY(-6px);
+            border-color: #52FFB8;
+            box-shadow: 0 12px 35px rgba(0, 255, 170, 0.08);
         }
 
-        .coin {
+        .price-content {
+            padding: 24px;
+        }
+
+        .coin-top {
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 20px;
+            gap: 14px;
+            margin-bottom: 24px;
         }
 
         .coin-icon {
-            width: 46px;
-            height: 46px;
-            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            flex-shrink: 0;
             display: flex;
-            align-items: center;
             justify-content: center;
-            font-size: 22px;
+            align-items: center;
+            border-radius: 14px;
+            background: #202E43;
+            font-size: 24px;
             font-weight: bold;
-            background: #27334D;
         }
 
-        .coin h3 {
-            font-size: 18px;
+        .coin-name {
+            font-weight: bold;
+            font-size: 17px;
         }
 
-        .coin small {
-            color: #94A3B8;
+        .coin-symbol {
+            font-size: 12px;
+            color: #8D9BB1;
+        }
+
+        .price-label {
+            font-size: 12px;
+            color: #8997AD;
         }
 
         .price {
-            font-size: 27px;
+            font-size: clamp(22px, 3vw, 30px);
             font-weight: bold;
-            margin-bottom: 5px;
+            margin: 5px 0;
+            letter-spacing: -1px;
         }
 
         .change {
-            color: #34D399;
-            font-size: 14px;
+            font-size: 13px;
+            color: #52FFB8;
         }
 
-        .sample-note {
-            color: #94A3B8;
-            font-size: 12px;
-            margin-top: 22px;
+        .price-note {
             text-align: center;
+            color: #738198;
+            font-size: 12px;
+            margin-top: 24px;
         }
 
-        /* Learning Section */
+        /* Learning */
         .learn-section {
-            background: #11182B;
+            background: #0C1220;
+            border-top: 1px solid #1B2638;
+            border-bottom: 1px solid #1B2638;
         }
 
         .learn-grid {
@@ -207,35 +291,42 @@
         }
 
         .learn-card {
-            background: #19233A;
-            padding: 28px;
-            border-radius: 14px;
-            border: 1px solid #2B3650;
+            overflow: hidden;
+            background: #111A2B;
+            border: 1px solid #26354A;
+            border-radius: 16px;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .learn-card:hover {
+            border-color: #9B8AFF;
+            transform: translateY(-5px);
+        }
+
+        .learn-card .card-image {
+            height: 190px;
+        }
+
+        .learn-content {
+            padding: 25px;
         }
 
         .learn-icon {
-            font-size: 32px;
-            margin-bottom: 15px;
+            font-size: 28px;
+            margin-bottom: 10px;
         }
 
         .learn-card h3 {
-            color: #34D399;
             margin-bottom: 12px;
+            color: #B6A8FF;
         }
 
         .learn-card p {
-            color: #B4C0D4;
-            font-size: 15px;
+            color: #A8B4C8;
+            font-size: 14px;
         }
 
-        .english {
-            display: block;
-            color: #8290A8;
-            font-size: 13px;
-            margin-top: 10px;
-        }
-
-        /* News Section */
+        /* Learning Topics */
         .news-grid {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -243,63 +334,96 @@
         }
 
         .news-card {
-            background: #151E33;
-            border: 1px solid #293650;
-            border-radius: 14px;
-            padding: 24px;
+            overflow: hidden;
+            background: #111A2B;
+            border: 1px solid #26354A;
+            border-radius: 16px;
+            transition: transform 0.3s, border-color 0.3s;
         }
 
-        .news-label {
+        .news-card:hover {
+            border-color: #52FFB8;
+            transform: translateY(-5px);
+        }
+
+        .news-card .card-image {
+            height: 190px;
+        }
+
+        .news-content {
+            padding: 26px;
+        }
+
+        .news-tag {
             display: inline-block;
-            background: #243B39;
-            color: #6EE7B7;
-            font-size: 12px;
-            padding: 5px 10px;
+            color: #52FFB8;
+            background: #132C27;
             border-radius: 5px;
-            margin-bottom: 15px;
+            padding: 4px 10px;
+            font-size: 11px;
+            margin-bottom: 14px;
         }
 
         .news-card h3 {
+            font-size: 18px;
             margin-bottom: 12px;
-            font-size: 19px;
         }
 
         .news-card p {
-            color: #AAB6CC;
+            color: #A8B4C8;
             font-size: 14px;
         }
 
-        .news-date {
-            display: block;
-            color: #8290A8;
-            font-size: 12px;
-            margin-top: 18px;
+        /* Scroll Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .price-card:nth-child(2),
+        .learn-card:nth-child(2),
+        .news-card:nth-child(2) {
+            transition-delay: 0.15s;
+        }
+
+        .price-card:nth-child(3),
+        .learn-card:nth-child(3),
+        .news-card:nth-child(3) {
+            transition-delay: 0.3s;
         }
 
         /* Footer */
         footer {
-            background: #080D18;
-            border-top: 1px solid #25304A;
-            padding: 35px 20px;
             text-align: center;
+            background: #05080F;
+            border-top: 1px solid #202B3E;
+            padding: 35px 20px;
         }
 
         footer .logo {
-            margin-bottom: 10px;
             display: inline-block;
+            margin-bottom: 10px;
         }
 
         footer p {
-            color: #94A3B8;
-            font-size: 14px;
+            color: #8290A6;
+            font-size: 13px;
+            margin: 8px 0;
         }
 
         .footer-links {
-            margin: 15px 0;
+            margin: 18px 0;
         }
 
         .footer-links a {
-            color: #34D399;
+            color: #52FFB8;
+            font-size: 13px;
             margin: 0 10px;
         }
 
@@ -307,43 +431,58 @@
             text-decoration: underline;
         }
 
-        /* Responsive Design */
-        @media (max-width: 800px) {
+        /* Mobile */
+        @media (max-width: 760px) {
             header {
                 flex-direction: column;
-                gap: 16px;
+                gap: 14px;
+                padding: 18px;
             }
 
             nav {
                 justify-content: center;
                 flex-wrap: wrap;
-                gap: 12px 18px;
+                gap: 12px 20px;
             }
 
-            .price-grid,
-            .learn-grid,
-            .news-grid {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-
-            .hero {
-                padding: 65px 6%;
-            }
-        }
-
-        @media (max-width: 520px) {
             .price-grid,
             .learn-grid,
             .news-grid {
                 grid-template-columns: 1fr;
             }
 
-            .section-title {
-                font-size: 26px;
+            .hero {
+                min-height: 460px;
+                padding: 65px 20px;
             }
 
-            .hero h1 {
-                font-size: 34px;
+            .container {
+                padding: 60px 20px;
+            }
+
+            .card-image {
+                height: 210px;
+            }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+
+            .price-card,
+            .learn-card,
+            .news-card,
+            .card-image,
+            .button {
+                transition: none;
             }
         }
     </style>
@@ -353,272 +492,315 @@
 
     <!-- Header -->
     <header>
-        <a href="#" class="logo">₿ CryptoLearn</a>
+        <a href="#" class="logo">CRYPTOVA.</a>
 
         <nav>
-            <a href="#prices">価格 / Prices</a>
-            <a href="#learn">学習 / Learn</a>
-            <a href="#news">ニュース / News</a>
+            <a href="#prices">市場価格</a>
+            <a href="#learn">基礎知識</a>
+            <a href="#news">学習トピック</a>
         </nav>
     </header>
 
-    <!-- Hero -->
-    <section class="hero">
-        <p class="tag">YOUR CRYPTO JOURNEY STARTS HERE</p>
+    <main>
 
-        <h1>
-            暗号資産を学ぼう。<br>
-            <span>Learn Crypto.</span>
-        </h1>
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-tag">暗号資産の新しい世界へ</div>
 
-        <p>
-            暗号資産とブロックチェーンの基礎を、
-            初心者にもわかりやすく解説します。<br>
-            Learn the basics of cryptocurrency and blockchain
-            in a simple and beginner-friendly way.
-        </p>
+            <h1>
+                お金の未来を、<br>
+                <span>その手に。</span>
+            </h1>
 
-        <a href="#learn" class="button">
-            学習を始める / Start Learning
-        </a>
-    </section>
-
-    <!-- Cryptocurrency Prices -->
-    <section id="prices" class="container">
-        <h2 class="section-title">
-            暗号資産の価格 / Crypto Prices
-        </h2>
-
-        <p class="section-subtitle">
-            人気の暗号資産をチェックしよう。
-            Explore popular cryptocurrencies.
-        </p>
-
-        <div class="price-grid">
-
-            <article class="price-card">
-                <div class="coin">
-                    <div class="coin-icon">₿</div>
-                    <div>
-                        <h3>Bitcoin</h3>
-                        <small>BTC / ビットコイン</small>
-                    </div>
-                </div>
-
-                <p class="price">$67,000</p>
-                <p class="change">+2.40% (Sample)</p>
-            </article>
-
-            <article class="price-card">
-                <div class="coin">
-                    <div class="coin-icon">◆</div>
-                    <div>
-                        <h3>Ethereum</h3>
-                        <small>ETH / イーサリアム</small>
-                    </div>
-                </div>
-
-                <p class="price">$3,200</p>
-                <p class="change">+1.80% (Sample)</p>
-            </article>
-
-            <article class="price-card">
-                <div class="coin">
-                    <div class="coin-icon">◎</div>
-                    <div>
-                        <h3>Solana</h3>
-                        <small>SOL / ソラナ</small>
-                    </div>
-                </div>
-
-                <p class="price">$150</p>
-                <p class="change">+3.10% (Sample)</p>
-            </article>
-
-        </div>
-
-        <p class="sample-note">
-            ※ 表示価格はデザイン用のサンプルです。実際の市場価格ではありません。<br>
-            Sample prices for demonstration only. Not live market data.
-        </p>
-    </section>
-
-    <!-- Learn Crypto -->
-    <section id="learn" class="learn-section">
-        <div class="container">
-
-            <h2 class="section-title">
-                暗号資産の基礎 / Crypto Basics
-            </h2>
-
-            <p class="section-subtitle">
-                3つの基本から学ぼう。
-                Start with these three essential concepts.
+            <p>
+                暗号資産とブロックチェーンの世界を、
+                シンプルに学ぼう。
             </p>
 
-            <div class="learn-grid">
+            <a href="#learn" class="button">学習を始める ↗</a>
+        </section>
 
-                <article class="learn-card">
-                    <div class="learn-icon">₿</div>
+        <!-- Prices -->
+        <section id="prices" class="container">
+            <div class="section-heading">
+                <h2>市場 <span class="accent">価格</span></h2>
+                <p>人気の暗号資産をチェック</p>
+            </div>
 
-                    <h3>ビットコイン / Bitcoin</h3>
+            <div class="price-grid">
 
-                    <p>
-                        ビットコインは、銀行などの管理者を必要とせず、
-                        インターネット上で送金できる暗号資産です。
-                    </p>
+                <article class="price-card">
+                    <div class="image-wrap">
+                        <img
+                            class="card-image"
+                            src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=800&q=80"
+                            alt="デジタル技術をイメージした暗号資産のビジュアル"
+                            loading="lazy">
+                    </div>
 
-                    <span class="english">
-                        Bitcoin is a digital currency that can be
-                        transferred online without a central bank.
-                    </span>
+                    <div class="price-content">
+                        <div class="coin-top">
+                            <div class="coin-icon">₿</div>
+                            <div>
+                                <div class="coin-name">ビットコイン</div>
+                                <div class="coin-symbol">BTC</div>
+                            </div>
+                        </div>
+
+                        <div class="price-label">参考価格</div>
+                        <div class="price">¥10,000,000</div>
+                        <div class="change">↗ +2.40%</div>
+                    </div>
                 </article>
 
-                <article class="learn-card">
-                    <div class="learn-icon">🔗</div>
+                <article class="price-card">
+                    <div class="image-wrap">
+                        <img
+                            class="card-image"
+                            src="https://images.unsplash.com/photo-1622630998477-20aa696ecb05?auto=format&fit=crop&w=800&q=80"
+                            alt="暗号資産をイメージしたデジタルコイン"
+                            loading="lazy">
+                    </div>
 
-                    <h3>ブロックチェーン / Blockchain</h3>
+                    <div class="price-content">
+                        <div class="coin-top">
+                            <div class="coin-icon">◆</div>
+                            <div>
+                                <div class="coin-name">イーサリアム</div>
+                                <div class="coin-symbol">ETH</div>
+                            </div>
+                        </div>
 
-                    <p>
-                        ブロックチェーンは、取引記録などのデータを
-                        つなげて管理する技術です。
-                    </p>
-
-                    <span class="english">
-                        A blockchain is a technology that records
-                        and links data in a shared digital ledger.
-                    </span>
+                        <div class="price-label">参考価格</div>
+                        <div class="price">¥480,000</div>
+                        <div class="change">↗ +1.80%</div>
+                    </div>
                 </article>
 
-                <article class="learn-card">
-                    <div class="learn-icon">🔐</div>
+                <article class="price-card">
+                    <div class="image-wrap">
+                        <img
+                            class="card-image"
+                            src="https://images.unsplash.com/photo-1640340434855-6084b1f4901c?auto=format&fit=crop&w=800&q=80"
+                            alt="デジタル金融と暗号資産のイメージ"
+                            loading="lazy">
+                    </div>
 
-                    <h3>ウォレット / Wallet</h3>
+                    <div class="price-content">
+                        <div class="coin-top">
+                            <div class="coin-icon">◎</div>
+                            <div>
+                                <div class="coin-name">ソラナ</div>
+                                <div class="coin-symbol">SOL</div>
+                            </div>
+                        </div>
 
-                    <p>
-                        暗号資産ウォレットは、暗号資産を管理したり、
-                        取引に必要な鍵を扱ったりするための仕組みです。
-                    </p>
-
-                    <span class="english">
-                        A crypto wallet helps you manage your assets
-                        and the keys needed to authorize transactions.
-                    </span>
+                        <div class="price-label">参考価格</div>
+                        <div class="price">¥22,500</div>
+                        <div class="change">↗ +3.10%</div>
+                    </div>
                 </article>
 
             </div>
-        </div>
-    </section>
 
-    <!-- News -->
-    <section id="news" class="container">
-        <h2 class="section-title">
-            暗号資産ニュース / Crypto News
-        </h2>
+            <p class="price-note">
+                ※ 価格・変動率はデザイン用のサンプルです。実際の相場ではありません。
+            </p>
+        </section>
 
-        <p class="section-subtitle">
-            暗号資産の世界で注目されるトピック。
-            Explore topics shaping the crypto world.
-        </p>
+        <!-- Learning -->
+        <section id="learn" class="learn-section">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>暗号資産の<span class="accent">基礎知識</span></h2>
+                    <p>まずは3つの基本から</p>
+                </div>
 
-        <div class="news-grid">
+                <div class="learn-grid">
 
-            <article class="news-card">
-                <span class="news-label">Bitcoin</span>
+                    <article class="learn-card">
+                        <div class="image-wrap">
+                            <img
+                                class="card-image"
+                                src="https://images.unsplash.com/photo-1518546305927-5a555bb7020d?auto=format&fit=crop&w=800&q=80"
+                                alt="ビットコインのコイン"
+                                loading="lazy">
+                        </div>
 
-                <h3>
-                    ビットコインの仕組みを理解しよう
-                </h3>
+                        <div class="learn-content">
+                            <div class="learn-icon">₿</div>
+                            <h3>ビットコイン</h3>
+                            <p>
+                                インターネット上で送金できる、
+                                代表的な暗号資産。
+                            </p>
+                        </div>
+                    </article>
 
-                <p>
-                    ビットコインの取引、マイニング、
-                    そして供給量の仕組みについて学びましょう。
-                </p>
+                    <article class="learn-card">
+                        <div class="image-wrap">
+                            <img
+                                class="card-image"
+                                src="https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&w=800&q=80"
+                                alt="ブロックチェーンとデジタルネットワークのイメージ"
+                                loading="lazy">
+                        </div>
 
-                <span class="english">
-                    Learn how Bitcoin transactions, mining,
-                    and its limited supply work.
-                </span>
+                        <div class="learn-content">
+                            <div class="learn-icon">⛓️</div>
+                            <h3>ブロックチェーン</h3>
+                            <p>
+                                取引記録などのデータを
+                                つなげて管理する技術。
+                            </p>
+                        </div>
+                    </article>
 
-                <span class="news-date">
-                    学習トピック / Educational topic
-                </span>
-            </article>
+                    <article class="learn-card">
+                        <div class="image-wrap">
+                            <img
+                                class="card-image"
+                                src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=800&q=80"
+                                alt="デジタルセキュリティをイメージした写真"
+                                loading="lazy">
+                        </div>
 
-            <article class="news-card">
-                <span class="news-label">Blockchain</span>
+                        <div class="learn-content">
+                            <div class="learn-icon">🔐</div>
+                            <h3>ウォレット</h3>
+                            <p>
+                                暗号資産や取引に必要な鍵を
+                                管理するための仕組み。
+                            </p>
+                        </div>
+                    </article>
 
-                <h3>
-                    ブロックチェーンの新しい活用方法
-                </h3>
+                </div>
+            </div>
+        </section>
 
-                <p>
-                    金融以外の分野でも利用される
-                    ブロックチェーン技術を紹介します。
-                </p>
+        <!-- Learning Topics -->
+        <section id="news" class="container">
+            <div class="section-heading">
+                <h2><span class="accent">暗号資産を学ぼう</span></h2>
+                <p>暗号資産の注目トピック</p>
+            </div>
 
-                <span class="english">
-                    Discover how blockchain technology
-                    can be used beyond finance.
-                </span>
+            <div class="news-grid">
 
-                <span class="news-date">
-                    学習トピック / Educational topic
-                </span>
-            </article>
+                <article class="news-card">
+                    <div class="image-wrap">
+                        <img
+                            class="card-image"
+                            src="https://images.unsplash.com/photo-1621761191319-c6fb62004040?auto=format&fit=crop&w=800&q=80"
+                            alt="ビットコインのイメージ"
+                            loading="lazy">
+                    </div>
 
-            <article class="news-card">
-                <span class="news-label">Security</span>
+                    <div class="news-content">
+                        <span class="news-tag">BITCOIN</span>
+                        <h3>ビットコインの仕組み</h3>
+                        <p>
+                            取引やマイニングなど、
+                            ビットコインの基本を学ぼう。
+                        </p>
+                    </div>
+                </article>
 
-                <h3>
-                    暗号資産を安全に管理するには？
-                </h3>
+                <article class="news-card">
+                    <div class="image-wrap">
+                        <img
+                            class="card-image"
+                            src="https://images.unsplash.com/photo-1639762681057-408e52192e55?auto=format&fit=crop&w=800&q=80"
+                            alt="ブロックチェーン技術のイメージ"
+                            loading="lazy">
+                    </div>
 
-                <p>
-                    パスワードの管理や詐欺への注意など、
-                    資産を守るための基本を確認しましょう。
-                </p>
+                    <div class="news-content">
+                        <span class="news-tag">TECHNOLOGY</span>
+                        <h3>広がるブロックチェーン</h3>
+                        <p>
+                            金融以外の分野でも活用される
+                            新しい技術に注目。
+                        </p>
+                    </div>
+                </article>
 
-                <span class="english">
-                    Learn essential security practices,
-                    from protecting passwords to avoiding scams.
-                </span>
+                <article class="news-card">
+                    <div class="image-wrap">
+                        <img
+                            class="card-image"
+                            src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=800&q=80"
+                            alt="コンピューターとデジタルセキュリティ"
+                            loading="lazy">
+                    </div>
 
-                <span class="news-date">
-                    セキュリティ / Security
-                </span>
-            </article>
+                    <div class="news-content">
+                        <span class="news-tag">SECURITY</span>
+                        <h3>資産を守るセキュリティ</h3>
+                        <p>
+                            詐欺や不正アクセスを防ぐ
+                            基本的な対策を知ろう。
+                        </p>
+                    </div>
+                </article>
 
-        </div>
+            </div>
+        </section>
 
-        <p class="sample-note">
-            ※ ニュース欄はサンプルコンテンツです。実際の最新ニュースではありません。<br>
-            The news cards contain sample educational content,
-            not verified breaking news.
-        </p>
-    </section>
+    </main>
 
     <!-- Footer -->
     <footer>
-        <a href="#" class="logo">₿ CryptoLearn</a>
+        <a href="#" class="logo">CRYPTOVA.</a>
 
-        <p>
-            暗号資産を学ぶための初心者向けサイト。<br>
-            A beginner-friendly website for learning about crypto.
-        </p>
+        <p>暗号資産の世界を、もっとシンプルに。</p>
 
         <div class="footer-links">
-            <a href="#learn">学習 / Learn</a>
-            <a href="#prices">価格 / Prices</a>
-            <a href="#news">ニュース / News</a>
-            <a href="mailto:info@example.com">お問い合わせ / Contact</a>
+            <a href="#prices">市場価格</a>
+            <a href="#learn">基礎知識</a>
+            <a href="#news">学習トピック</a>
+            <a href="mailto:info@example.com">お問い合わせ</a>
         </div>
 
-        <p>
-            © 2026 CryptoLearn. All rights reserved.
-        </p>
+        <p>© 2026 CRYPTOVA. All rights reserved.</p>
     </footer>
+
+    <!-- Scroll Animations -->
+    <script>
+        const animatedElements = document.querySelectorAll(
+            '.section-heading, .price-card, .learn-card, .news-card'
+        );
+
+        const reduceMotion = window.matchMedia(
+            '(prefers-reduced-motion: reduce)'
+        ).matches;
+
+        if (reduceMotion || !('IntersectionObserver' in window)) {
+            animatedElements.forEach(element => {
+                element.classList.add('visible');
+            });
+        } else {
+            animatedElements.forEach(element => {
+                element.classList.add('reveal');
+            });
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.12
+            });
+
+            animatedElements.forEach(element => {
+                observer.observe(element);
+            });
+        }
+    </script>
 
 </body>
 </html>
-```
